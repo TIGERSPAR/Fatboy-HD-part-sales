@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - FATBOY HD</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .cart-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-light);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    body.dark-mode .cart-item {
+      background: var(--card-dark);
+    }
+    .cart-item img {
+      width: 80px;
+      border-radius: 6px;
+      margin-right: 20px;
+    }
+    .cart-info {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .cart-details h4 {
+      margin: 0 0 5px;
+    }
+    .remove-btn {
+      background: crimson;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .clear-btn {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .empty {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FATBOY HD</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="product.html">product details</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contanct.html">Contact</a></li>
+      <li><a href="chart-1.html">chart</a></li>
+    </ul>
+  </nav>
+  <div class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+</header>
+
+<div class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<section class="cart-container">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+</section>
+
+<footer>
+  <p>&copy; 2025 FATBOY HD Parts Sales. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  const products = {
+    1: { name: "Chrome Exhaust Pipe", price: "$299", image: "images/exhaust.jpg" },
+    2: { name: "Custom Handlebars", price: "$149", image: "images/handlebars.jpg" },
+    3: { name: "Disc Brake Kit", price: "$199", image: "images/brake.jpg" },
+  };
+
+  function renderCart() {
+    const container = document.getElementById("cart-items");
+    container.innerHTML = "";
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="empty">Your cart is empty.</div>';
+      return;
+    }
+    cart.forEach((id, index) => {
+      const item = products[id];
+      const card = document.createElement("div");
+      card.className = "cart-item";
+      card.innerHTML = `
+        <div class="cart-info">
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="cart-details">
+            <h4>${item.name}</h4>
+            <p>${item.price}</p>
+          </div>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    renderCart();
+  }
+
+  renderCart();
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - FATBOY HD</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .about-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
+      line-height: 1.7;
+    }
+    .about-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .about-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      color: var(--primary);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FATBOY HD</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+       <li><a href="product.html">product details</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contanct.html">Contact</a></li>
+      <li><a href="chart-1.html">chart</a></li>
+    </ul>
+  </nav>
+  <div class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+</header>
+
+<div class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<section class="about-section">
+  <h2>About FATBOY HD Parts Sales</h2>
+  <p>
+    <span class="highlight">FATBOY HD</span> was founded with one mission: to bring top-tier Harley-Davidson parts to passionate riders around the world. With years of hands-on experience in custom builds and bike restoration, we understand what riders need — both on the road and in their garage.
+  </p>
+  <p>
+    We offer premium-quality parts such as exhausts, brake kits, handlebars, lighting systems, and accessories — each selected for durability, performance, and that unmistakable style. Every product listed on our site is either tested by our team or comes highly recommended by the rider community.
+  </p>
+  <p>
+    At FATBOY HD, it's not just about selling parts. It's about fueling your ride, your freedom, and your story. From first-time modifiers to veteran road warriors — you're always welcome here.
+  </p>
+</section>
+
+<footer>
+  <p>&copy; 2025 FATBOY HD Parts Sales. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+</script>
+<script src="main.js"></script>
+</body>
+</html>

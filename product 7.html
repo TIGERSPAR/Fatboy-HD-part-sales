@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - FATBOY HD</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .product-detail {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: var(--card-light);
+      border-radius: 10px;
+    }
+    body.dark-mode .product-detail {
+      background: var(--card-dark);
+    }
+    .product-detail img {
+      flex: 1 1 350px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product-info {
+      flex: 1 1 500px;
+    }
+    .product-info h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .product-info p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FATBOY HD</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="product.html" class="active">product details</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contanct.html">Contact</a></li>
+      <li><a href="chart-1.html">chart</a></li>
+    </ul>
+  </nav>
+  <div class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+</header>
+
+<div class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<section class="product-detail">
+  <img src="n08(2).jpeg" alt="Product Image" id="product-image">
+<img src="n08(3).jpeg" alt="Product Image" id="product-image">
+<img src="n08(4).jpeg" alt="Product Image" id="product-image">
+
+  <div class="product-info">
+    <h1 id="product-name"></h1>
+    <p id="product-description">
+     New, no scratches or marks with box hood price off a soft tail 
+    </p>
+    <div class="price" id="product-price">$750</div>
+    <button class="btn-primary" onclick="addToCart(1)">Add to Cart</button>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 FATBOY HD Parts Sales. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+
+  function addToCart(id) {
+    cart.push(id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    document.getElementById("cart-count").textContent = cart.length;
+    alert("Product added to cart!");
+  }
+</script>
+<script src="main.js"></script>
+</body>
+</html>

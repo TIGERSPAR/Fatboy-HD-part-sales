@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - FATBOY HD Parts</title>
+  <link rel="stylesheet" href="st.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .filter-bar {
+      margin: 30px 0;
+      text-align: center;
+    }
+    .filter-bar select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">FATBOY HD</div>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+       <li><a href="product.html">product details</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contanct.html">Contact</a></li>
+      <li><a href="chart-1.html">chart</a></li>
+    </ul>
+  </nav>
+  <div class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+</header>
+
+<div class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<section class="container">
+  <h2 class="section-title">Our Bike Parts</h2>
+
+  <div class="filter-bar">
+    <label for="category">Filter by category:</label>
+    <select id="category" onchange="filterProducts()">
+      <option value="all">All</option>
+      <option value="exhaust">Exhaust</option>
+      <option value="brakes">Brakes</option>
+      <option value="handlebars">Handlebars</option>
+    </select>
+  </div>
+
+  <div class="product-grid" id="product-list">
+    <div class="product-card" data-category="exhaust">
+      <img src="n01(1).jpeg" alt="Exhaust Pipe">
+      <h3></h3>
+      <p>$600</p>
+      <a href="product.html?id=1" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(1)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="handlebars">
+      <img src="n02(1).jpeg" alt="Handlebars">
+      <h3></h3>
+      <p>$1000</p>
+      <a href="product 1.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(2)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="brakes">
+      <img src="n03(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$200</p>
+      <a href="product 2.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+<div class="product-card" data-category="brakes">
+      <img src="n04(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$270</p>
+      <a href="product 3.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-category="brakes">
+      <img src="n05(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$600</p>
+      <a href="product 4.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-category="brakes">
+      <img src="n06(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$500</p>
+      <a href="product 5.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-category="brakes">
+      <img src="n07(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$750</p>
+      <a href="product 6.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-category="brakes">
+      <img src="n08(1).jpeg" alt="Brake Kit">
+      <h3></h3>
+      <p>$250</p>
+      <a href="product 7.html" class="btn-primary">View Details</a>
+      <button class="btn-primary" onclick="addToCart(3)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 FATBOY HD Parts Sales. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  document.getElementById("cart-count").textContent = cart.length;
+
+  function addToCart(id) {
+    cart.push(id);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    document.getElementById("cart-count").textContent = cart.length;
+    alert("Item added to cart!");
+  }
+
+  function filterProducts() {
+    const category = document.getElementById("category").value;
+    const items = document.querySelectorAll(".product-card");
+    items.forEach(card => {
+      card.style.display = (category === "all" || card.dataset.category === category) ? "block" : "none";
+    });
+  }
+</script>
+<script src="main.js"></script>
+</body>
+</html>
