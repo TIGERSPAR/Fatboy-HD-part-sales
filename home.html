@@ -4,124 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FATBOY HD Parts Sales</title>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="st.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <style>
-    /* GENERAL STYLES */
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: 0.3s;
-    }
-    :root {
-      --bg: #f9f9f9;
-      --text: #111;
-      --card: #fff;
-    }
-    .dark-mode {
-      --bg: #111;
-      --text: #eee;
-      --card: #1a1a1a;
-    }
-    .container {max-width: 1200px; margin: auto; padding: 0 20px;}
-
-    /* HEADER */
-    header {
-      background: #111; color: #fff;
-      padding: 15px 0; position: sticky; top: 0; z-index: 1000;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo {font-size: 24px; font-weight: 700; padding-left: 20px;}
-    nav ul {
-      display: flex; list-style: none; gap: 25px; margin-right: 20px;
-    }
-    nav a {
-      color: #fff; text-decoration: none; font-weight: 600;
-    }
-    nav a:hover, .active {color: #ff5500;}
-    .dark-toggle {
-      cursor: pointer; margin-left: 20px;
-    }
-
-    /* CART ICON */
-    .cart-icon {
-      position: fixed; top: 20px; right: 20px;
-      background: #ff5500; color: #fff;
-      padding: 10px 15px; border-radius: 50px;
-      font-size: 16px; font-weight: 600;
-    }
-
-    /* HERO SLIDER */
-    .swiper { width: 100%; height: 85vh; }
-    .swiper-slide {
-      background-size: cover; background-position: center;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: white;
-    }
-    .swiper-slide .content {
-      background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;
-    }
-    .swiper-slide h2 { font-size: 40px; margin-bottom: 10px; }
-    .btn-primary {
-      background: #ff5500; color: white; padding: 10px 25px;
-      text-decoration: none; border-radius: 5px; font-weight: 600;
-    }
-
-    /* FEATURED */
-    .featured {padding: 60px 20px; text-align: center;}
-    .section-title {font-size: 32px; margin-bottom: 30px;}
-    .product-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px;
-    }
-    .product-card {
-      background: var(--card); padding: 20px; border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .product-card img {width: 100%; border-radius: 6px; margin-bottom: 15px;}
-
-    /* TESTIMONIALS */
-    .testimonials {
-      background: #f2f2f2; padding: 60px 20px; text-align: center;
-    }
-    .testimonial-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
-    }
-    .testimonial {
-      background: white; padding: 20px; border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .testimonial p {font-style: italic;}
-    .testimonial h4 {margin-top: 10px;}
-
-    /* NEWSLETTER POPUP */
-    .newsletter-popup {
-      position: fixed; bottom: 30px; right: 30px;
-      background: white; padding: 20px; border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      display: none;
-      max-width: 300px;
-    }
-    .newsletter-popup.show {display: block;}
-    .newsletter-popup input {
-      width: 100%; padding: 10px; margin: 10px 0;
-      border: 1px solid #ccc; border-radius: 5px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #111; color: white; text-align: center;
-      padding: 20px; margin-top: 60px;
-    }
-    .social-links a {
-      margin: 0 8px; color: white; font-size: 18px;
-      background: #333; padding: 10px; border-radius: 50%;
-      display: inline-block;
-    }
-    .social-links a:hover {background: #ff5500;}
-  </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -131,7 +18,6 @@
     <ul>
       <li><a href="home.html" class="active">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
-       <li><a href="product.html">product details</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contanct.html">Contact</a></li>
       <li><a href="chart-1.html">chart</a></li>
@@ -146,71 +32,56 @@
   🛒 <span id="cart-count">0</span>
 </div>
 
-<!-- HERO SLIDER -->
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide" style="background-image:url('n01\(1\).jpeg')">
-      <div class="content">
-        <h2>Top Performance Parts</h2>
-        <a href="shop.html" class="btn-primary">Shop Now</a>
-      </div>
-    </div>
-    <div class="swiper-slide" style="background-image:url('n07\(1\).jpeg')">
-      <div class="content">
-        <h2>Built for Harley-Davidson</h2>
-        <a href="shop.html" class="btn-primary">Browse Catalog</a>
-      </div>
-    </div>
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Premium Parts for Harley-Davidson Enthusiasts</h1>
+    <p>High-quality parts, fast shipping, trusted by riders worldwide.</p>
+    <a href="shop.html" class="btn-primary">Shop Now</a>
   </div>
-</div>
-
-<!-- Featured Products -->
-<section class="featured">
-  <h2 class="section-title">Featured Parts</h2>
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="images/exhaust.jpg" alt="Exhaust Pipe">
-      <h3>Chrome Exhaust Pipe</h3>
-      <p>$299</p>
-    </div>
-    <div class="product-card">
-      <img src="images/handlebars.jpg" alt="Handlebars">
-      <h3>Custom Handlebars</h3>
-      <p>$149</p>
-    </div>
-    <div class="product-card">
-      <img src="images/brake.jpg" alt="Disc Brake Kit">
-      <h3>Disc Brake Kit</h3>
-      <p>$199</p>
-    </div>
-  </div>
+  <div class="scroll-down">&#8595;</div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials">
-  <h2 class="section-title">What Riders Say</h2>
+<section class="testimonials" data-aos="fade-up">
+  <h2>What Our Riders Say</h2>
   <div class="testimonial-grid">
     <div class="testimonial">
-      <p>"Top-notch parts. My Harley has never felt smoother!"</p>
-      <h4>- Mike R.</h4>
+      <img src="images/rider1.jpg" alt="Customer">
+      <p>“Top-quality parts! My bike runs smoother than ever.”</p>
+      <h4>- Jason K.</h4>
     </div>
     <div class="testimonial">
-      <p>"Fast delivery and great support. Highly recommend."</p>
-      <h4>- Sarah L.</h4>
-    </div>
-    <div class="testimonial">
-      <p>"These guys know bikes. The parts fit perfectly."</p>
-      <h4>- John B.</h4>
+      <img src="images/rider2.jpg" alt="Customer">
+      <p>“Fast delivery and great customer service. Highly recommend!”</p>
+      <h4>- Mia R.</h4>
     </div>
   </div>
 </section>
 
-<!-- Newsletter Popup -->
-<div class="newsletter-popup" id="newsletter">
-  <h4>📬 Join Our Newsletter</h4>
-  <p>Get updates on new parts & deals!</p>
-  <input type="email" placeholder="Your email">
-  <button class="btn-primary" onclick="closeNewsletter()">Subscribe</button>
+<section class="features" data-aos="zoom-in">
+  <div class="feature">
+    <i class="fas fa-tools"></i>
+    <h3>Tested Durability</h3>
+    <p>Only trusted parts from reputable sources.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-shipping-fast"></i>
+    <h3>Fast Delivery</h3>
+    <p>Quick and secure shipping nationwide.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-headset"></i>
+    <h3>Support</h3>
+    <p>We're here to help 24/7 for all your bike needs.</p>
+  </div>
+</section>
+
+<div id="newsletter" class="newsletter-popup">
+  <div class="newsletter-content">
+    <h3>Join Our Riders List 🏍️</h3>
+    <p>Get exclusive deals and new part alerts!</p>
+    <input type="email" placeholder="Enter your email" />
+    <button class="btn-primary">Subscribe</button>
+  </div>
 </div>
 
 <footer>
@@ -222,28 +93,8 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    autoplay: { delay: 4000 },
-  });
-
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-
-  function closeNewsletter() {
-    document.getElementById('newsletter').style.display = 'none';
-  }
-
-  // Show newsletter popup after delay
-  window.onload = () => {
-    setTimeout(() => {
-      document.getElementById('newsletter').classList.add('show');
-    }, 4000);
-  }
-</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init();</script>
 <script src="main.js"></script>
 </body>
 </html>
