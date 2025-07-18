@@ -75,18 +75,16 @@
 <section class="contact-section">
   <div class="contact-form">
     <h2>Contact Us</h2>
-    <form action="#" onsubmit="event.preventDefault(); alert('Message sent!');">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <form action="https://formspree.io/f/xgvzvlaj" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
   </div>
 
-  <div class="contact-map">
-    <h2>Find Us</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.7273552856368!2d10.1734076!3d5.9630514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10613334eebcfbbb%3A0x3330f1c9b0cdddf5!2sBamenda!5e0!3m2!1sen!2scm!4v1655489795302!5m2!1sen!2scm" allowfullscreen="" loading="lazy"></iframe>
-  </div>
+  
 </section>
 
 <footer>

@@ -1,0 +1,308 @@
+/* === RESET & VARIABLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-light: #f9f9f9;
+  --bg-dark: #111;
+  --text-light: #111;
+  --text-dark: #eee;
+  --primary: #ff5500;
+  --card-light: #fff;
+  --card-dark: #1a1a1a;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* === HEADER === */
+header {
+  background: var(--bg-dark);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header .logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav .active {
+  color: var(--primary);
+}
+.dark-toggle {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 15px;
+}
+
+/* === HERO SLIDER === */
+.swiper {
+  width: 100%;
+  height: 85vh;
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.swiper-slide .content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+.swiper-slide h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* === BUTTON === */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: #e64500;
+}
+
+/* === PRODUCT GRID === */
+.featured,
+.testimonials {
+  padding: 60px 20px;
+  text-align: center;
+}
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+.product-grid,
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+.product-card,
+.testimonial {
+  background: var(--card-light);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+body.dark-mode .product-card,
+body.dark-mode .testimonial {
+  background: var(--card-dark);
+  color: var(--text-dark);
+}
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* === TESTIMONIALS === */
+.testimonial p {
+  font-style: italic;
+}
+.testimonial h4 {
+  margin-top: 10px;
+}
+
+/* === CART ICON === */
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 999;
+}
+
+/* === NEWSLETTER POPUP === */
+.newsletter-popup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  max-width: 300px;
+  z-index: 999;
+}
+body.dark-mode .newsletter-popup {
+  background: var(--card-dark);
+  color: var(--text-dark);
+}
+.newsletter-popup.show {
+  display: block;
+}
+.newsletter-popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--bg-dark);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+}
+.social-links a {
+  margin: 0 8px;
+  color: white;
+  font-size: 18px;
+  background: #333;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s;
+}
+.social-links a:hover {
+  background: var(--primary);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FATBOY HD Parts Sales</title>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="st.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">FATBOY HD</div>
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="dark-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+  </div>
+</header>
+
+<div class="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<section class="hero">
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Premium Parts for Harley-Davidson Enthusiasts</h1>
+    <p>High-quality parts, fast shipping, trusted by riders worldwide.</p>
+    <a href="shop.html" class="btn-primary">Shop Now</a>
+  </div>
+  <div class="scroll-down">&#8595;</div>
+</section>
+
+<section class="testimonials" data-aos="fade-up">
+  <h2>What Our Riders Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <img src="images/rider1.jpg" alt="Customer">
+      <p>“Top-quality parts! My bike runs smoother than ever.”</p>
+      <h4>- Jason K.</h4>
+    </div>
+    <div class="testimonial">
+      <img src="images/rider2.jpg" alt="Customer">
+      <p>“Fast delivery and great customer service. Highly recommend!”</p>
+      <h4>- Mia R.</h4>
+    </div>
+  </div>
+</section>
+
+<section class="features" data-aos="zoom-in">
+  <div class="feature">
+    <i class="fas fa-tools"></i>
+    <h3>Tested Durability</h3>
+    <p>Only trusted parts from reputable sources.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-shipping-fast"></i>
+    <h3>Fast Delivery</h3>
+    <p>Quick and secure shipping nationwide.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-headset"></i>
+    <h3>Support</h3>
+    <p>We're here to help 24/7 for all your bike needs.</p>
+  </div>
+</section>
+
+<div id="newsletter" class="newsletter-popup">
+  <div class="newsletter-content">
+    <h3>Join Our Riders List 🏍️</h3>
+    <p>Get exclusive deals and new part alerts!</p>
+    <input type="email" placeholder="Enter your email" />
+    <button class="btn-primary">Subscribe</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 FATBOY HD Parts Sales. All rights reserved.</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="main.js"></script>
+</body>
+</html>
